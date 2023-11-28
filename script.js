@@ -21,10 +21,10 @@ function displayErrorMessage(message) {
     const errorMessage = document.createElement('div');
     errorMessage.classList.add('error-message');
     errorMessage.textContent = message;
-  
+
     const container = document.querySelector('.container');
     container.appendChild(errorMessage);
-  
+
     setTimeout(() => {
         errorMessage.remove();
     }, 3000);
@@ -70,47 +70,42 @@ function handleImageUpload(event) {
 
 function generateMeme() {
     const reader = new FileReader();
-  
+
     reader.onload = function(event) {
       const img = new Image();
       img.onload = function() {
-        const aspectRatio = 3 / 4;
-        const width = img.width;
-        const height = width * aspectRatio;
-
-        memeCanvas.width = width;
-        memeCanvas.height = height;
-
+        memeCanvas.width = img.width;
+        memeCanvas.height = img.height;
         ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
-        ctx.drawImage(img, 0, 0, width, height);
-  
+        ctx.drawImage(img, 0, 0);
+
         ctx.fillStyle = textColorPicker.value; 
         const fontSizeTop = parseInt(fontSizeInputTop.value) || 36;
         ctx.font = `${fontSizeTop}px Impact`;
         ctx.textAlign = 'center';
-  
+
         ctx.fillText(topText.value.toUpperCase(), memeCanvas.width / 2, 40);
         ctx.strokeText(topText.value.toUpperCase(), memeCanvas.width / 2, 40);
-  
+
         ctx.fillStyle = textColorPicker.value;
         const fontSizeBottom = parseInt(fontSizeInputBottom.value) || 36;
         ctx.font = `${fontSizeBottom}px Impact`;
         ctx.textAlign = 'center';
-  
+
         ctx.fillText(bottomText.value.toUpperCase(), memeCanvas.width / 2, memeCanvas.height - 20);
         ctx.strokeText(bottomText.value.toUpperCase(), memeCanvas.width / 2, memeCanvas.height - 20);
-  
+
         const generatedImage = new Image();
         generatedImage.src = memeCanvas.toDataURL('image/png');
-  
+
         selectedImageContainer.innerHTML = '';
-        
+
         selectedImageContainer.appendChild(generatedImage);
         selectedImageContainer.style.display = 'block';
       };
       img.src = event.target.result;
     };
-  
+
     if (imageUpload.files[0]) {
       reader.readAsDataURL(imageUpload.files[0]);
     }
