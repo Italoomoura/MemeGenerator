@@ -36,6 +36,11 @@ Este é um projeto simples de um gerador de memes web que permite aos usuários 
 
 7. Você pode compartilhar o meme gerado ou baixar a imagem.
 
+## Site
+
+Acesse o [Meme Generator](https://memegenerator-italoomoura.netlify.app) online.
+
+
 ## Contribuição
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para reportar bugs ou sugerir melhorias. Se deseja contribuir, faça um fork do repositório, realize as alterações e abra um pull request.
