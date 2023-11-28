@@ -74,10 +74,15 @@ function generateMeme() {
     reader.onload = function(event) {
       const img = new Image();
       img.onload = function() {
-        memeCanvas.width = img.width;
-        memeCanvas.height = img.height;
+        const aspectRatio = 3 / 4;
+        const width = img.width;
+        const height = width * aspectRatio;
+
+        memeCanvas.width = width;
+        memeCanvas.height = height;
+
         ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, width, height);
   
         ctx.fillStyle = textColorPicker.value; 
         const fontSizeTop = parseInt(fontSizeInputTop.value) || 36;
