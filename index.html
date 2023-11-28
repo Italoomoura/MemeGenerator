@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="text-inputs">
+                <textarea id="topText" placeholder="Texto superior"></textarea>
+                <div class="text-controls">
+                    <input type="number" id="fontSizeTop" placeholder="Tamanho da fonte (superior)">
+                </div>
+                <textarea id="bottomText" placeholder="Texto inferior"></textarea>
+                <div class="text-controls">
+                    <input type="number" id="fontSizeBottom" placeholder="Tamanho da fonte (inferior)">
+                    <input type="color" id="textColorPicker" value="#ffffff">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="generateMeme">Gerar Meme</button>
+                <button id="downloadMeme"><i class="fas fa-download"></i></button>
+                <button id="shareMeme"><i class="fas fa-share-alt"></i></button>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="image-container">
+                <input type="file" id="imageUpload" accept="image/*">
+                <div id="selectedImageContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="memeCanvas" style="display: none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
